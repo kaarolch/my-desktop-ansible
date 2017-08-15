@@ -1,0 +1,19 @@
+---
+# Terminator playbook
+
+- name: Install terminator package
+  dnf:
+    name: terminator
+    state: latest
+
+- name: Create config directory
+  file:
+    path: "{{ home_dir }}/.config/terminator/"
+
+- name: Configure terminator
+  template:
+    src: config
+    dest: "{{ home_dir }}/.config/terminator/config"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0664

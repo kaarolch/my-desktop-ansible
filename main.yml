@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  connection: localhost
+
+  roles:
+    - atom
+    - docker
+    - fonts
+    - git
+    - oh_my_zsh
+    - openjdk
+    - spotify
+    - system_utils
+    - terminator
+    - vlc
+    - wireshark

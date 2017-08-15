@@ -1,0 +1,10 @@
+---
+# Wireshark playbook
+
+- name: Install Wireshark package
+  dnf:
+    name: wireshark-gnome
+    state: latest
+
+- name: Add user to wireshark group
+  command: usermod -a -G docker {{ user }}

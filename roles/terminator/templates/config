@@ -1,0 +1,21 @@
+[global_config]
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.86
+    background_type = transparent
+    cursor_color = "#00ff00"
+    font = Ubuntu Mono derivative Powerline 11
+    foreground_color = "#00ff00"
+    scrollback_lines = 2000
+    use_system_font = False

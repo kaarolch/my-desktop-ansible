@@ -1,0 +1,10 @@
+---
+# OpenJDCK playbook
+
+- name: Install openJDK & icedtea package
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - java-openjdk
+    - icedtea-web

@@ -1,0 +1,9 @@
+# This file is genertated by ansible, please not modify it my friend
+
+[user]
+        name = {{ git.username }}
+        email = {{ git.email }}
+[core]
+        editor = vim
+[color]
+        ui = true

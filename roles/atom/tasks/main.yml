@@ -1,0 +1,12 @@
+---
+# Atom playbook
+
+- name: Download atom editor rpm
+  get_url:
+    url: https://atom.io/download/rpm
+    dest: "{{ tmp_dir }}/atom.rpm"
+
+- name: Install atom editor
+  dnf:
+    name: "{{ tmp_dir }}/atom.rpm"
+    state: present

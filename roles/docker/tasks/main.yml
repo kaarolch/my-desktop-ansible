@@ -1,0 +1,25 @@
+---
+# Docker playbook
+
+- name: Install Docker package
+  dnf:
+    name: docker
+    state: latest
+
+- name: Create docker group
+  group:
+    name: docker
+    state: present
+
+- name: Add user to docker group
+  command: usermod -a -G docker {{ user }}
+
+- name: Enable docker service
+  service:
+    name: docker
+    enabled: yes
+
+- name: Restart Docker service
+  service:
+    name: docker
+    state: restarted

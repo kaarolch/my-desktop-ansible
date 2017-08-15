@@ -1,0 +1,14 @@
+---
+# Global varaible use in some roles
+
+tmp_dir: /tmp/ansible_tmp
+user: karol
+group: karol
+home_dir: /home/{{ user }}
+git:
+  username: Karol Chrapek
+  email: kaarol@it-flow.pl
+  repo_dir: "{{ home_dir }}/repos"
+
+fonts:
+  ubuntu_version: 0.83

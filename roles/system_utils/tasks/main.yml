@@ -1,0 +1,15 @@
+---
+# System_utils playbook
+
+- name: Install system utils packages
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - htop
+    - nc
+    - nmap
+    - iotop
+    - telnet
+    - curl
+    - wget

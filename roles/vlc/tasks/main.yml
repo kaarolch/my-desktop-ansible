@@ -1,0 +1,7 @@
+---
+# VLC playbook
+
+- name: Install VLC package
+  dnf:
+    name: vlc
+    state: latest
