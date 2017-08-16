@@ -10,17 +10,20 @@
   file:
     path: "{{home_dir }}/.local/share/fonts/"
     state: directory
-    owner: "{{ user }}"
-    group: "{{ group }}"
-    mode: 0755
 
 - name: Install powerline fonts
-  copy:
+  synchronize:
     src: "{{ tmp_dir }}/fonts/"
     dest: "{{home_dir }}/.local/share/fonts/"
+
+- name: Change permission
+  file:
+    path: "{{home_dir }}/.local/share/fonts/"
+    state: directory
     owner: "{{ user }}"
     group: "{{ group }}"
     mode: 0755
+    recurse: yes
 
 - name: Refresh font cache
   shell: fc-cache -vf
