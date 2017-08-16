@@ -3,6 +3,7 @@
   connection: localhost
 
   roles:
+    - 3th_repos
     - atom
     - docker
     - fonts

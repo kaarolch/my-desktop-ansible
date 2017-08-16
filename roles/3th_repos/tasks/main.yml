@@ -1,0 +1,16 @@
+---
+# 3th_repos playbook
+
+- name: Check Fedora version
+  shell: rpm -E %fedora
+  register: version
+
+- name: Install rpmfusion free
+  dnf:
+    name: 'https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ version.stdout }}.noarch.rpm'
+    state: latest
+
+- name: Install rpmfusion nonfree
+  dnf:
+    name: 'https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{version.stdout }}.noarch.rpm'
+    state: latest

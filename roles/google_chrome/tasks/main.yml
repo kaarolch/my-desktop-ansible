@@ -1,10 +1,15 @@
 ---
-# Wireshark playbook
+# Google Chrome playbook
 
-- name: Install Wireshark package
+- name: Add chrome repository
+  copy:
+    src: chrome.repo
+    dest: /etc/yum.repos.d/
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install Google Chrome - stable
   dnf:
-    name: wireshark-gnome
-    state: latest
-
-- name: Add user to wireshark group
-  command: usermod -a -G docker {{ user }}
+    name: google-chrome-stable
+    state: present
