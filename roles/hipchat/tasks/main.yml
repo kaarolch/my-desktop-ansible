@@ -2,6 +2,8 @@
 # Hipchat playbook
 
 - name: Add hipchat repository
+  become: yes
+  become_method: sudo
   copy:
     src: hipchat.repo
     dest: /etc/yum.repos.d/
@@ -10,6 +12,8 @@
     mode: 0644
 
 - name: Install hipchat4
+  become: yes
+  become_method: sudo
   dnf:
     name: hipchat4
     state: present

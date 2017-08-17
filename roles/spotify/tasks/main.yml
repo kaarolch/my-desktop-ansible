@@ -2,9 +2,13 @@
 # Spotify installation playbook
 # Add repo is not supported by the dnf module:
 - name: Add spotify repo to dnf config
+  become: yes
+  become_method: sudo
   shell: dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
 
 - name: Install Spotify package
+  become: yes
+  become_method: sudo
   dnf:
     name: spotify
     state: latest

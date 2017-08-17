@@ -2,6 +2,8 @@
 # Ultimate vim playbook
 
 - name: Install vim package
+  become: yes
+  become_method: sudo
   dnf:
     name: vim
     state: latest

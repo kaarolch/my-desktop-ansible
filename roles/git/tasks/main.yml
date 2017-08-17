@@ -2,6 +2,8 @@
 # Git playbook
 
 - name: Install git package
+  become: yes
+  become_method: sudo
   dnf:
     name: git
     state: latest

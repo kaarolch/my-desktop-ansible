@@ -7,6 +7,8 @@
     dest: "{{ tmp_dir }}/atom.rpm"
 
 - name: Install atom editor
+  become: yes
+  become_method: sudo
   dnf:
     name: "{{ tmp_dir }}/atom.rpm"
     state: present

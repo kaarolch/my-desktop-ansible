@@ -2,6 +2,8 @@
 # VLC playbook
 
 - name: Install VLC package
+  become: yes
+  become_method: sudo
   dnf:
     name: vlc
     state: latest

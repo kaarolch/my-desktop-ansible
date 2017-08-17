@@ -2,6 +2,8 @@
 # Google Chrome playbook
 
 - name: Add chrome repository
+  become: yes
+  become_method: sudo
   copy:
     src: chrome.repo
     dest: /etc/yum.repos.d/
@@ -10,6 +12,8 @@
     mode: 0644
 
 - name: Install Google Chrome - stable
+  become: yes
+  become_method: sudo
   dnf:
     name: google-chrome-stable
     state: present

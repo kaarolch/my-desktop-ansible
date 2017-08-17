@@ -1,6 +1,8 @@
 ---
 # Oh-my-zsh playbook
 - name: Install zsh
+  become: yes
+  become_method: sudo
   dnf:
     name: zsh
     state: latest

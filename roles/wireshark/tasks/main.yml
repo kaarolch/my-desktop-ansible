@@ -2,9 +2,13 @@
 # Wireshark playbook
 
 - name: Install Wireshark package
+  become: yes
+  become_method: sudo
   dnf:
     name: wireshark-gnome
     state: latest
 
 - name: Add user to wireshark group
+  become: yes
+  become_method: sudo
   command: usermod -a -G docker {{ user }}

@@ -2,6 +2,8 @@
 # Terminator playbook
 
 - name: Install terminator package
+  become: yes
+  become_method: sudo
   dnf:
     name: terminator
     state: latest

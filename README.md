@@ -8,4 +8,6 @@ Most of this ansible code was customized to my own purposes and works on fedora 
 * ``` cd my-desktop-ansible ```
 * ``` chmod +x ./bootstrap.sh ```
 * ``` ./bootstrap.sh ```
-* ``` sudo ansible-playbook main.yml ```
+* ``` ansible-playbook main.yml  -K ```
+
+The -K option ask about sudo password
