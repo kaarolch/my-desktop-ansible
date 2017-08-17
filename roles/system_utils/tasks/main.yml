@@ -6,10 +6,14 @@
     name: "{{ item }}"
     state: latest
   with_items:
+    - curl
+    - gitk
     - htop
+    - iotop
     - nc
     - nmap
-    - iotop
+    - sysstat
     - telnet
-    - curl
+    - vim
+    - virty-manager
     - wget

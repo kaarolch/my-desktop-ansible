@@ -9,6 +9,7 @@
 - name: Create config directory
   file:
     path: "{{ home_dir }}/.config/terminator/"
+    state: directory
 
 - name: Configure terminator
   template:
