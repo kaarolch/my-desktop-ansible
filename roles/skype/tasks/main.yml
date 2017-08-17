@@ -1,0 +1,7 @@
+---
+# Skype installation playbook
+
+- name: Install Skype package
+  dnf:
+    name: 'https://go.skype.com/skypeforlinux-64.rpm'
+    state: present
