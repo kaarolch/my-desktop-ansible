@@ -1,0 +1,6 @@
+---
+# AWScli installation playbook
+- name: Install AWScli package
+  dnf:
+    name: awscli
+    state: latest

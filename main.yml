@@ -5,6 +5,7 @@
   roles:
     - 3th_repos
     - atom
+    - awcli
     - docker
     - fonts
     - git

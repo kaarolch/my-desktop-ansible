@@ -1,15 +1,15 @@
 ---
-# Google Chrome playbook
+# Hipchat playbook
 
-- name: Add chrome repository
+- name: Add hipchat repository
   copy:
-    src: chrome.repo
+    src: hipchat.repo
     dest: /etc/yum.repos.d/
     owner: root
     group: root
     mode: 0644
 
-- name: Install Google Chrome - stable
+- name: Install hipchat4
   dnf:
-    name: google-chrome-stable
+    name: hipchat4
     state: present
