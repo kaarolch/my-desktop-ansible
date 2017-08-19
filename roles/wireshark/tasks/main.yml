@@ -12,3 +12,15 @@
   become: yes
   become_method: sudo
   command: usermod -a -G docker {{ user }}
+
+- name: Create user fonts directory
+  file:
+    path: "{{home_dir }}/.config/wireshark"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ group }}"
+
+- name: Install powerline fonts
+  synchronize:
+    src: "{{ role_path }}/files/"
+    dest: "{{home_dir }}/.config/wireshark/"

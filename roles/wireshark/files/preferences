@@ -1,0 +1,12 @@
+# General preference settings
+gui.column.hidden:
+gui.column.format:
+	"No.", "%m",
+	"Time", "%At",
+	"Source", "%s",
+	"Destination", "%d",
+	"Protocol", "%p",
+	"Length", "%L",
+	"Info", "%i",
+	"SPort", "%S",
+	"DPort", "%D"

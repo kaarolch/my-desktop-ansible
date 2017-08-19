@@ -1,0 +1,16 @@
+# GUI recent configuration files
+gui.geometry_main_x: 20
+gui.geometry_main_y: 20
+gui.gtk.geometry_main_x: 0
+gui.gtk.geometry_main_y: 0
+gui.geometry_main_width: 1920
+gui.geometry_main_height: 1053
+gui.geometry_main_maximized: TRUE
+gui.geometry_status_pane: 250
+gui.geometry_status_pane_right: 1589
+gui.last_used_profile: Default
+gui.geometry_status_wlan_stats_pane: 200
+privs.warn_if_elevated: TRUE
+privs.warn_if_no_npf: TRUE
+gui.custom_colors:
+	""
