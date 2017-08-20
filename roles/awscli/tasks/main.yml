@@ -1,8 +1,5 @@
 ---
-# AWScli installation playbook
-- name: Install AWScli package
-  become: yes
-  become_method: sudo
-  dnf:
-    name: awscli
-    state: latest
+# Main awscli playbook, required for tags handling and include right playbook.
+- include: awscli.yml
+  tags:
+    - awscli

@@ -1,0 +1,26 @@
+---
+# Wireshark playbook
+
+- name: Install Wireshark package
+  become: yes
+  become_method: sudo
+  dnf:
+    name: wireshark-gnome
+    state: latest
+
+- name: Add user to wireshark group
+  become: yes
+  become_method: sudo
+  command: usermod -a -G docker {{ user }}
+
+- name: Create wireshark config folder
+  file:
+    path: "{{home_dir }}/.config/wireshark"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ group }}"
+
+- name: Copy config files
+  synchronize:
+    src: "{{ role_path }}/files/"
+    dest: "{{home_dir }}/.config/wireshark/"

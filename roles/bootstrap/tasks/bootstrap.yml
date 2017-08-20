@@ -1,0 +1,7 @@
+---
+# Setup basic system components
+
+- name: Create directory
+  file:
+    path: "{{ tmp_dir }}"
+    state: directory

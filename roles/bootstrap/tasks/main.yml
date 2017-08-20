@@ -1,7 +1,5 @@
 ---
-# Setup basic system components
-
-- name: Create directory
-  file:
-    path: "{{ tmp_dir }}"
-    state: directory
+# Main bootstrap playbook, required for tags handling and include right playbook.
+- include: bootstrap.yml
+  tags:
+    - bootstrap

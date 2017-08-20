@@ -1,0 +1,5 @@
+---
+# Main rpmfusion playbook, required for tags handling and include right playbook.
+- include: rpmfusion.yml
+  tags:
+    - rpmfusion

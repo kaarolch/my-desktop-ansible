@@ -1,0 +1,26 @@
+---
+# Ultimate vim playbook
+
+- name: Install vim package
+  become: yes
+  become_method: sudo
+  dnf:
+    name: vim
+    state: latest
+
+- name: Clone ultimate vim repo
+  git:
+    repo: https://github.com/amix/vimrc.git
+    accept_hostkey: yes
+    force: yes
+    dest: '{{ home_dir }}/.vim_runtime'
+
+- name: Install Awesome vim
+  shell: sh {{ home_dir }}/.vim_runtime/install_awesome_vimrc.sh
+
+- name: Correct permission
+  file:
+      path: '{{ home_dir }}/.vim_runtime'
+      owner: '{{ user }}'
+      group: '{{ group }}'
+      recurse: yes

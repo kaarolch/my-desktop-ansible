@@ -1,9 +1,5 @@
 ---
-# Keybase installation playbook
-
-- name: Install keybase package
-  become: yes
-  become_method: sudo
-  dnf:
-    name: 'https://prerelease.keybase.io/keybase_amd64.rpm'
-    state: present
+# Main keybase playbook, required for tags handling and include right playbook.
+- include: keybase.yml
+  tags:
+    - keybase

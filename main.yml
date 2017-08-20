@@ -3,7 +3,6 @@
   connection: localhost
 
   roles:
-    - 3th_repos
     - atom
     - awscli
     - docker
@@ -13,7 +12,8 @@
     - hipchat
     - keybase
     - oh_my_zsh
-    - openjdk
+    - openjdk    
+    - rpmf_repos
     - skype
     - spotify
     - system_utils

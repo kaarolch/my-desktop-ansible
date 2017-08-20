@@ -1,19 +1,5 @@
 ---
-# Google Chrome playbook
-
-- name: Add chrome repository
-  become: yes
-  become_method: sudo
-  copy:
-    src: chrome.repo
-    dest: /etc/yum.repos.d/
-    owner: root
-    group: root
-    mode: 0644
-
-- name: Install Google Chrome - stable
-  become: yes
-  become_method: sudo
-  dnf:
-    name: google-chrome-stable
-    state: present
+# Main chrome playbook, required for tags handling and include right playbook.
+- include: chrome.yml
+  tags:
+    - chrome

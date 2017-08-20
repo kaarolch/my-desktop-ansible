@@ -1,0 +1,29 @@
+---
+# fonts playbook
+
+- name: Clone powerline fonts repo
+  git:
+    repo: https://github.com/powerline/fonts.git
+    dest: "{{ tmp_dir }}/fonts"
+
+- name: Create user fonts directory
+  file:
+    path: "{{home_dir }}/.local/share/fonts/"
+    state: directory
+
+- name: Install powerline fonts
+  synchronize:
+    src: "{{ tmp_dir }}/fonts/"
+    dest: "{{home_dir }}/.local/share/fonts/"
+
+- name: Change permission
+  file:
+    path: "{{home_dir }}/.local/share/fonts/"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0755
+    recurse: yes
+
+- name: Refresh font cache
+  shell: fc-cache -vf

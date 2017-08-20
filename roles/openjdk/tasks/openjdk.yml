@@ -1,0 +1,12 @@
+---
+# OpenJDCK playbook
+
+- name: Install openJDK & icedtea package
+  become: yes
+  become_method: sudo
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - java-openjdk
+    - icedtea-web

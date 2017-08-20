@@ -1,0 +1,21 @@
+---
+# System_utils playbook
+
+- name: Install system utils packages
+  become: yes
+  become_method: sudo
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - curl
+    - gitk
+    - htop
+    - iotop
+    - nc
+    - nmap
+    - sysstat
+    - telnet
+    - vim
+    - virt-manager
+    - wget

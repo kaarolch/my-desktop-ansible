@@ -1,0 +1,24 @@
+---
+# Oh-my-zsh playbook
+- name: Install zsh
+  become: yes
+  become_method: sudo
+  dnf:
+    name: zsh
+    state: latest
+
+- name: Clone oh-my-zsh repo
+  git:
+    repo=https://github.com/robbyrussell/oh-my-zsh.git
+    dest={{home_dir}}/.oh-my-zsh
+
+- name: Configure terminator
+  template:
+    src: zshrc
+    dest: "{{ home_dir }}/.zshrc"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0760
+
+- name: Set ZSH as default shell
+  command: usermod -s /usr/bin/zsh {{ user }}

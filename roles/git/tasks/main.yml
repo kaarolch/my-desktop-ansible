@@ -1,25 +1,5 @@
 ---
-# Git playbook
-
-- name: Install git package
-  become: yes
-  become_method: sudo
-  dnf:
-    name: git
-    state: latest
-
-- name: Configure git package
-  template:
-    src: gitconfig
-    dest: "{{ home_dir }}/.gitconfig"
-    owner: "{{ user }}"
-    group: "{{ group }}"
-    mode: 0600
-
-- name: Create repositories directory
-  file:
-    path: "{{ git.repo_dir }}"
-    state: directory
-    owner: "{{ user }}"
-    group: "{{ group }}"
-    mode: 0750
+# Main git playbook, required for tags handling and include right playbook.
+- include: git.yml
+  tags:
+    - git

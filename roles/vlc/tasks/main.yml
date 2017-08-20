@@ -1,9 +1,5 @@
 ---
-# VLC playbook
-
-- name: Install VLC package
-  become: yes
-  become_method: sudo
-  dnf:
-    name: vlc
-    state: latest
+# Main vlc playbook, required for tags handling and include right playbook.
+- include: vlc.yml
+  tags:
+    - vlc

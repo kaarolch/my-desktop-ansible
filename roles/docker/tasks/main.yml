@@ -1,35 +1,5 @@
 ---
-# Docker playbook
-
-- name: Install Docker package
-  become: yes
-  become_method: sudo
-  dnf:
-    name: docker
-    state: latest
-
-- name: Create docker group
-  become: yes
-  become_method: sudo
-  group:
-    name: docker
-    state: present
-
-- name: Add user to docker group
-  become: yes
-  become_method: sudo
-  command: usermod -a -G docker {{ user }}
-
-- name: Enable docker service
-  become: yes
-  become_method: sudo
-  service:
-    name: docker
-    enabled: yes
-
-- name: Restart Docker service
-  become: yes
-  become_method: sudo
-  service:
-    name: docker
-    state: restarted
+# Main docker playbook, required for tags handling and include right playbook.
+- include: docker.yml
+  tags:
+    - docker

@@ -1,0 +1,9 @@
+---
+# Skype installation playbook
+
+- name: Install Skype package
+  become: yes
+  become_method: sudo
+  dnf:
+    name: 'https://go.skype.com/skypeforlinux-64.rpm'
+    state: present

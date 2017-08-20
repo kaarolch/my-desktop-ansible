@@ -1,9 +1,5 @@
 ---
-# Skype installation playbook
-
-- name: Install Skype package
-  become: yes
-  become_method: sudo
-  dnf:
-    name: 'https://go.skype.com/skypeforlinux-64.rpm'
-    state: present
+# Main skype playbook, required for tags handling and include right playbook.
+- include: skype.yml
+  tags:
+    - skype

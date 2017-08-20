@@ -1,12 +1,5 @@
 ---
-# OpenJDCK playbook
-
-- name: Install openJDK & icedtea package
-  become: yes
-  become_method: sudo
-  dnf:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-    - java-openjdk
-    - icedtea-web
+# Main openjdk playbook, required for tags handling and include right playbook.
+- include: openjdk.yml
+  tags:
+    - openjdk
