@@ -1,0 +1,3 @@
+[default]
+region={{ aws.region }}
+output={{ aws.output }}

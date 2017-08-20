@@ -6,3 +6,22 @@
   dnf:
     name: awscli
     state: latest
+
+- name: Check and setup config directory
+  file:
+    path: "{{ home_dir }}/.aws"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0750
+
+- name: Check if config file exist
+  stat:
+    path: "{{ home_dir }}/.aws/config"
+  register: aws_config
+
+- name: Copy configuration file
+  template:
+    src: config
+    dest: "{{ home_dir }}/.aws/config"
+  when: not aws_config.stat.exists
