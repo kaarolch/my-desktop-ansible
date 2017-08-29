@@ -1,0 +1,5 @@
+---
+# Main golang playbook, required for tags handling and include right playbook.
+- include: golang.yml
+  tags:
+    - golang

@@ -8,11 +8,12 @@
     - docker
     - fonts
     - git
+    - golang
     - google_chrome
     - hipchat
     - keybase
     - oh_my_zsh
-    - openjdk    
+    - openjdk
     - rpmf_repos
     - skype
     - spotify

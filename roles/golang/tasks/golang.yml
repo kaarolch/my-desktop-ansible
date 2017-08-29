@@ -1,0 +1,26 @@
+---
+# Golang playbook
+
+- name: Install golnag - stable
+  become: yes
+  become_method: sudo
+  dnf:
+    name: golang
+    state: present
+
+- name: Create golang directory structure for user
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ home_dir }}/go"
+    - "{{ home_dir }}/go/bin"
+    - "{{ home_dir }}/go/pkg"
+    - "{{ home_dir }}/go/src"
+- name: Add users' golang bin dir to path
+  lineinfile:
+    dest: "{{ home_dir}}/.bash_profile"
+    regexp: '^PATH=(.*)$'
+    line: 'PATH=\1:$HOME/go/bin'
+    backrefs: yes
+  when: not ansible_env.PATH | search('go/bin')
