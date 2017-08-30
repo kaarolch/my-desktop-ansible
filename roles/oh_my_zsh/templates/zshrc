@@ -1,7 +1,7 @@
 # Configured by ansible
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-
+export PATH=$PATH:/bin
 # Set name of the theme to load. Optionally, if you set this to "random"
 ZSH_THEME="agnoster"
 plugins=(battery docker fedore git go )

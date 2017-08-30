@@ -17,10 +17,45 @@
     - "{{ home_dir }}/go/bin"
     - "{{ home_dir }}/go/pkg"
     - "{{ home_dir }}/go/src"
+
+- name: Check if .bash_profile file exist
+  stat:
+    path: "{{ home_dir}}/.bash_profile"
+  register: bash_profile
+
 - name: Add users' golang bin dir to path
   lineinfile:
     dest: "{{ home_dir}}/.bash_profile"
     regexp: '^PATH=(.*)$'
     line: 'PATH=\1:$HOME/go/bin'
     backrefs: yes
-  when: not ansible_env.PATH | search('go/bin')
+  when: not ansible_env.PATH | search('go/bin') and (bash_profile.stat.exists)
+
+- name: Add GOPATH to .bash_profile
+  lineinfile:
+    dest: "{{ home_dir}}/.bash_profile"
+    regexp: '^export GOPATH='
+    line: 'export GOPATH=$HOME/go'
+    create: yes
+  when: bash_profile.stat.exists
+
+- name: Check if .zshrc file exist
+  stat:
+    path: "{{ home_dir}}/.zshrc"
+  register: zshrc
+
+- name: Add users' golang bin dir to .zhsrc path
+  lineinfile:
+    dest: "{{ home_dir}}/.zshrc"
+    regexp: '^export PATH=(.*)$'
+    line: 'export PATH=\1:$HOME/go/bin'
+    backrefs: yes
+  when: (not ansible_env.PATH | search('go/bin')) and (zshrc.stat.exists)
+
+- name: Add GOPATH to .zhsrc
+  lineinfile:
+    dest: "{{ home_dir}}/.zshrc"
+    regexp: '^export GOPATH='
+    line: 'export GOPATH=$HOME/go'
+    create: yes
+  when: zshrc.stat.exists
