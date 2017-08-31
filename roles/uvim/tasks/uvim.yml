@@ -24,3 +24,13 @@
       owner: '{{ user }}'
       group: '{{ group }}'
       recurse: yes
+
+- name: Add hipchat repository
+  become: yes
+  become_method: sudo
+  copy:
+    src: extended.vim
+    dest: '{{ home_dir }}/.vim_runtime/vimrcs/'
+    owner: '{{ user }}'
+    group: '{{ group }}'
+    mode: 0644
