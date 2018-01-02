@@ -6,6 +6,15 @@ user: karol
 group: karol
 home_dir: /home/{{ user }}
 
+atom:
+  packages:
+    - auto-update-plus
+    - language-ansible
+    - minimap
+    - tree-view-git-status
+    - highlight-selected
+    - minimap-highlight-selected
+
 aws:
   region: eu-west-1
   output: text

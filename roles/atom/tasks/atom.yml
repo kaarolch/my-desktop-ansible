@@ -12,3 +12,20 @@
   dnf:
     name: "{{ tmp_dir }}/atom.rpm"
     state: present
+
+- name: Update all installed plugins
+  shell: >
+    apm upgrade -compatible --no-confirm | grep -E '(empty)'
+    && echo 'No update.'
+  register: apm_update_result
+  changed_when: "'No update.' not in apm_update_result.stdout"
+
+- name: Install atom package
+  shell: >
+    apm list --bare | grep -E '^{{ item }}@'
+    && echo 'Already installed.'
+    || apm install '{{ item }}'
+  with_items:
+    - "{{ atom.packages }}"
+  register: apm_install_result
+  changed_when: "'Already installed.' not in apm_install_result.stdout"
