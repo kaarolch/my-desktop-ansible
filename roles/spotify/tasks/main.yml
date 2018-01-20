@@ -1,5 +1,5 @@
 ---
 # Main spotify playbook, required for tags handling and include right playbook.
-- include: spotify.yml
+- include_tasks: spotify.yml
   tags:
     - spotify

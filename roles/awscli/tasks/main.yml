@@ -1,5 +1,5 @@
 ---
 # Main awscli playbook, required for tags handling and include right playbook.
-- include: awscli.yml
+- include_tasks: awscli.yml
   tags:
     - awscli

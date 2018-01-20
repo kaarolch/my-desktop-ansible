@@ -1,5 +1,5 @@
 ---
 # Main vlc playbook, required for tags handling and include right playbook.
-- include: vlc.yml
+- include_tasks: vlc.yml
   tags:
     - vlc

@@ -1,5 +1,5 @@
 ---
 # Main oh_my_zsh playbook, required for tags handling and include right playbook.
-- include: oh_my_zsh.yml
+- include_tasks: oh_my_zsh.yml
   tags:
     - oh_my_zsh

@@ -20,5 +20,6 @@
     - system_utils
     - terminator
     - uvim
+    - vagrant
     - vlc
     - wireshark

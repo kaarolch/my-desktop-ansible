@@ -1,5 +1,5 @@
 ---
 # Main uvim playbook, required for tags handling and include right playbook.
-- include: uvim.yml
+- include_tasks: uvim.yml
   tags:
     - uvim

@@ -1,5 +1,5 @@
 ---
 # Main atom playbook, required for tags handling and include right playbook.
-- include: atom.yml
+- include_tasks: atom.yml
   tags:
     - atom

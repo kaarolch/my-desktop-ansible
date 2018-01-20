@@ -1,5 +1,5 @@
 ---
 # Main golang playbook, required for tags handling and include right playbook.
-- include: golang.yml
+- include_tasks: golang.yml
   tags:
     - golang

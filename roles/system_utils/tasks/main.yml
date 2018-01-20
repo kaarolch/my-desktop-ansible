@@ -1,5 +1,5 @@
 ---
 # Main system_utils playbook, required for tags handling and include right playbook.
-- include: system_utils.yml
+- include_tasks: system_utils.yml
   tags:
     - system_utils
