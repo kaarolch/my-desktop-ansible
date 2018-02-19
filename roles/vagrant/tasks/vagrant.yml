@@ -1,0 +1,28 @@
+---
+
+- name: Install vagrant packages
+  become: yes
+  become_method: sudo
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - "@vagrant"
+
+- name: Enable libvirtd service
+  systemd:
+    name: libvirtd
+    enabled: yes
+    state: started
+
+- name: Create libvirt group
+  become: yes
+  become_method: sudo
+  group:
+    name: libvirt
+    state: present
+
+- name: Add user to libvirt group
+  become: yes
+  become_method: sudo
+  command: usermod -a -G libvirt {{ user }}
