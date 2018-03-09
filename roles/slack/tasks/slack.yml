@@ -1,0 +1,8 @@
+---
+
+- name: Install slack package
+  become: yes
+  become_method: sudo
+  dnf:
+    name: 'https://downloads.slack-edge.com/linux_releases/slack-{{ slack_version }}.x86_64.rpm'
+    state: latest

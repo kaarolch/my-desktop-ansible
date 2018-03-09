@@ -21,4 +21,6 @@
     mode: 0760
 
 - name: Set ZSH as default shell
+  become: yes
+  become_method: sudo
   command: usermod -s /usr/bin/zsh {{ user }}

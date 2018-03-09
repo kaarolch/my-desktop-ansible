@@ -16,6 +16,7 @@
     - openjdk
     - rpmf_repos
     - skype
+    - slack
     - spotify
     - system_utils
     - terminator

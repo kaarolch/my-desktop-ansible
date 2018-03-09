@@ -26,3 +26,5 @@ git:
   username: Karol Chrapek
   email: kaarol@it-flow.pl
   repo_dir: "{{ home_dir }}/repos"
+
+slack_version: 3.0.5-0.1.fc21
