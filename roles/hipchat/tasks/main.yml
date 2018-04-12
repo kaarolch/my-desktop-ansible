@@ -1,5 +1,0 @@
----
-# Main hipchat playbook, required for tags handling and include right playbook.
-- include_tasks: hipchat.yml
-  tags:
-    - hipchat

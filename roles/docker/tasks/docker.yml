@@ -1,12 +1,45 @@
 ---
 # Docker playbook
 
-- name: Install Docker package
+- name: Remove old docker version
   become: yes
   become_method: sudo
-  dnf:
-    name: docker
-    state: latest
+  package:
+    name: 'docker'
+    state: absent
+
+- name: Add Docker GPG key.
+  become: yes
+  become_method: sudo
+  rpm_key:
+    key: https://download.docker.com/linux/centos/gpg
+    state: present
+
+- name: Add Docker repository.
+  become: yes
+  become_method: sudo
+  get_url:
+    url: "https://download.docker.com/linux/centos/docker-ce.repo"
+    dest: '/etc/yum.repos.d/docker-ce.repo'
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Configure Docker Edge repo.
+  become: yes
+  become_method: sudo
+  ini_file:
+    dest: '/etc/yum.repos.d/docker-ce.repo'
+    section: 'docker-ce-edge'
+    option: enabled
+    value: '0'
+
+- name: Install Docker.
+  become: yes
+  become_method: sudo
+  package:
+    name: docker-ce
+    state: present
 
 - name: Create docker group
   become: yes
