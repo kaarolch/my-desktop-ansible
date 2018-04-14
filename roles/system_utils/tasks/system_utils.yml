@@ -11,9 +11,11 @@
     - curl
     - gitk
     - htop
+    - hdparm
     - iotop
     - nc
     - nmap
+    - pv
     - sysstat
     - telnet
     - vim
