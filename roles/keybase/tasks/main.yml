@@ -1,5 +1,5 @@
 ---
 # Main keybase playbook, required for tags handling and include right playbook.
-- include_tasks: keybase.yml
+- import_tasks: keybase.yml
   tags:
     - keybase

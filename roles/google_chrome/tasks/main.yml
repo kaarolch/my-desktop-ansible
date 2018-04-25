@@ -1,5 +1,5 @@
 ---
 # Main chrome playbook, required for tags handling and include right playbook.
-- include_tasks: chrome.yml
+- import_tasks: chrome.yml
   tags:
     - chrome

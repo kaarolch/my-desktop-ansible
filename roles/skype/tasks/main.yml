@@ -1,5 +1,5 @@
 ---
 # Main skype playbook, required for tags handling and include right playbook.
-- include_tasks: skype.yml
+- import_tasks: skype.yml
   tags:
     - skype

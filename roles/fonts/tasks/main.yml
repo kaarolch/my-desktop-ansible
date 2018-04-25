@@ -1,5 +1,5 @@
 ---
 # Main fonts playbook, required for tags handling and include right playbook.
-- include_tasks: fonts.yml
+- import_tasks: fonts.yml
   tags:
     - fonts

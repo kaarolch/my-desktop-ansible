@@ -1,5 +1,5 @@
 ---
 # Main rpmfusion playbook, required for tags handling and include right playbook.
-- include_tasks: rpmfusion.yml
+- import_tasks: rpmfusion.yml
   tags:
     - rpmfusion

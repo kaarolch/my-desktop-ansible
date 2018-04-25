@@ -1,5 +1,5 @@
 ---
 # Main vagrat playbook, required for tags handling and include right playbook.
-- include_tasks: vagrant.yml
+- import_tasks: vagrant.yml
   tags:
     - vagrant

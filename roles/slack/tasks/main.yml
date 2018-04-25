@@ -1,5 +1,5 @@
 ---
 # Main slack playbook, required for tags handling and include right playbook.
-- include_tasks: slack.yml
+- import_tasks: slack.yml
   tags:
     - slack

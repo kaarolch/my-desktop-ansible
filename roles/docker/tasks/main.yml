@@ -1,5 +1,5 @@
 ---
 # Main docker playbook, required for tags handling and include right playbook.
-- include_tasks: docker.yml
+- import_tasks: docker.yml
   tags:
     - docker
