@@ -1,0 +1,29 @@
+---
+- name: Check tiller version
+  command: helm version -c
+  register: helm_info
+
+- block:
+  - name: Create directory for helm
+    file:
+      path: "{{ helm_tmp_path }}"
+      state: directory
+
+  - name: Download helm binary {{ helm_version }}
+    unarchive:
+      src: "{{ helm_binary_url }}"
+      dest: "{{ helm_tmp_path }}/"
+      remote_src: yes
+
+  - name: Move helm to binary path
+    become: yes
+    copy:
+      src: "{{ helm_tmp_path }}/linux-amd64/helm"
+      dest: "{{ helm_path }}/helm"
+      mode: 755
+
+  - name: Remove tmp folder
+    file:
+      path: "{{ helm_tmp_path }}"
+      state: absent
+  when: " helm_version not in helm_info.stdout "

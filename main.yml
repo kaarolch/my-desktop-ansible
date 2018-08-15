@@ -10,6 +10,7 @@
     - git
     - golang
     - google_chrome
+    - helm
     - keybase
     - oh_my_zsh
     - openjdk
