@@ -13,9 +13,12 @@
     - htop
     - hdparm
     - iotop
+    - jq
     - nc
     - nmap
     - pv
+    - sg3_utils
+    - smem
     - sysstat
     - telnet
     - vim
