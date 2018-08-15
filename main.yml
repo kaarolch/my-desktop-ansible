@@ -12,6 +12,7 @@
     - google_chrome
     - helm
     - keybase
+    - kubectl
     - oh_my_zsh
     - openjdk
     - rpmf_repos

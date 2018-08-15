@@ -1,0 +1,9 @@
+---
+# k8s tools playbook
+
+- name: Install kubernetes client tool
+  become: yes
+  become_method: sudo
+  dnf:
+    name: kubernetes-client
+    state: latest

@@ -1,0 +1,6 @@
+---
+# Main system_utils playbook, required for tags handling and include right playbook.
+- import_tasks: kubectl.yml
+  tags:
+    - k8s-tool
+    - kubectl
