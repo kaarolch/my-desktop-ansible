@@ -8,8 +8,19 @@ home_dir: /home/{{ user }}
 
 atom:
   packages:
+    - atom-beautify
     - auto-update-plus
+    - busy-signal
+    - file-icons
+    - intentions
     - language-ansible
+    - linter
+    - linter-ansible-linting
+    - linter-docker
+    - linter-golinter
+    - linter-markdown
+    - linter-ui-default
+    - markdown-preview-plus
     - minimap
     - tree-view-git-status
     - highlight-selected
@@ -27,4 +38,6 @@ git:
   email: kaarol@it-flow.pl
   repo_dir: "{{ home_dir }}/repos"
 
-slack_version: 3.0.5-0.1.fc21
+helm_version: 2.10.0
+
+slack_version: 3.1.1-0.1.fc21
