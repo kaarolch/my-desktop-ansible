@@ -8,6 +8,7 @@
     - docker
     - fonts
     - git
+    - gnome-utils
     - golang
     - google_chrome
     - helm

@@ -1,0 +1,10 @@
+---
+
+- name: Install Gnome tweak tool package
+  become: yes
+  become_method: sudo
+  dnf:
+    name: gnome-tweak-tool
+    state: latest
+
+-

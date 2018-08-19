@@ -1,0 +1,4 @@
+---
+- import_tasks: install-tools.yml
+  tags:
+    - gnome-tools
