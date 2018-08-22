@@ -12,6 +12,7 @@ atom:
     - auto-update-plus
     - busy-signal
     - file-icons
+    - git-plus
     - intentions
     - language-ansible
     - linter
