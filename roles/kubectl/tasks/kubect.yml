@@ -1,0 +1,41 @@
+---
+- name: Create directory for kubectx and kubens
+  file:
+    path: "{{ tmp_dir }}"
+    state: directory
+
+- name: Download kubectx and kubens binary {{ kubect_tools_version }}
+  unarchive:
+    src: "{{ kubect_tools_url}}"
+    dest: "{{ tmp_dir }}/"
+    remote_src: yes
+
+- name: Move kubectx and kubens to binary path
+  become: yes
+  copy:
+    src: "{{ tmp_dir }}/kubectx-{{ kubect_tools_version | replace('v', '') }}/{{ item }}"
+    dest: "{{ kubect_path }}/{{ item }}"
+    mode: 0755
+  loop:
+    - kubectx
+    - kubens
+
+- name: Create completions directory
+  file:
+    path: "{{home_dir}}/.oh-my-zsh/completions"
+    state: directory
+    mode: 0755
+
+- name: Install kubectx and kubens completions
+  copy:
+    src: "{{ tmp_dir }}/kubectx-{{ kubect_tools_version | replace('v', '') }}/completion/{{ item }}"
+    dest: "{{home_dir}}/.oh-my-zsh/completions/{{ item }}"
+    mode: 0755
+  loop:
+    - kubectx.zsh
+    - kubens.zsh
+
+- name: Remove tmp folder
+  file:
+    path: "{{ tmp_dir }}/kubectx-{{ kubect_tools_version | replace('v', '') }}"
+    state: absent

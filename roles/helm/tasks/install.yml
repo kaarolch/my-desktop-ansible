@@ -20,7 +20,7 @@
     copy:
       src: "{{ helm_tmp_path }}/linux-amd64/helm"
       dest: "{{ helm_path }}/helm"
-      mode: 755
+      mode: 0755
 
   - name: Remove tmp folder
     file:

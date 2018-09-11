@@ -1,0 +1,5 @@
+---
+
+kubect_tools_version: v0.6.1
+kubect_tools_url: https://github.com/ahmetb/kubectx/archive/{{ kubect_tools_version}}.tar.gz
+kubect_path: /usr/local/bin/

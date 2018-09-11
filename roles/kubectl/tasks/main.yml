@@ -4,3 +4,8 @@
   tags:
     - k8s-tool
     - kubectl
+
+- import_tasks: kubect.yml
+  tags:
+    - k8s-tool
+    - kubect
