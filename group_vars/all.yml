@@ -39,6 +39,6 @@ git:
   email: kaarol@it-flow.pl
   repo_dir: "{{ home_dir }}/repos"
 
-helm_version: 2.10.0
+helm_version: 2.11.0
 
 slack_version: 3.1.1-0.1.fc21
