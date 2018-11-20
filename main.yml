@@ -12,6 +12,7 @@
     - golang
     - google_chrome
     - helm
+    - helmfile
     - keybase
     - kubectl
     - oh_my_zsh

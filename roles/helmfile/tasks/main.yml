@@ -1,0 +1,7 @@
+---
+# Main helmfile role.
+
+- import_tasks: install.yml
+  tags:
+    - helmfile
+    - k8s-tool

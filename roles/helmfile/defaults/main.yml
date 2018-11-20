@@ -1,0 +1,2 @@
+helmfile_ver: 0.40.1
+helmfile_url: 'https://github.com/roboll/helmfile/releases/download/v{{helmfile_ver}}/helmfile_linux_amd64'

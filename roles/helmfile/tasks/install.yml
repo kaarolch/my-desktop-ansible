@@ -1,0 +1,32 @@
+---
+
+- name: Check for installation of helmfile
+  become: yes
+  become_user: root
+  stat:
+    path: '/usr/local/bin/helmfile-{{ helmfile_ver }}'
+  changed_when: False
+  register: helmfile_binary
+
+- when: not helmfile_binary.stat.exists
+  block:
+    - name: Find and remove previous version
+      file:
+        path: "{{ item }}"
+        state: absent
+      with_fileglob:
+        - "/usr/local/bin/helmfile-*"
+    - name: Download helmfile
+      become: yes
+      become_user: root
+      get_url:
+        url: '{{helmfile_url}}'
+        dest: /usr/local/bin/helmfile-{{ helmfile_ver }}
+        mode: 0755
+    - name: Link for helmfile
+      become: yes
+      become_user: root
+      file:
+        src: '/usr/local/bin/helmfile-{{ helmfile_ver }}'
+        dest: '/usr/local/bin/helmfile'
+        state: link
