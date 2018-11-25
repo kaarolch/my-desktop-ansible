@@ -1,0 +1,23 @@
+---
+
+- name: Check for installation of dive
+  become: yes
+  become_user: root
+  stat:
+    path: '/usr/local/bin/dive-{{ dive_ver }}'
+  changed_when: False
+  register: dive_binary
+
+- when: not dive_binary.stat.exists
+  block:
+    - name: Download dive
+      get_url:
+        url: "{{ dive_url }}"
+        dest: "{{ tmp_dir }}/dive.rpm"
+
+    - name: Install dive
+      become: yes
+      become_method: sudo
+      dnf:
+        name: "{{ tmp_dir }}/dive.rpm"
+        state: present
