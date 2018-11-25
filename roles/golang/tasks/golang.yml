@@ -48,7 +48,7 @@
   lineinfile:
     dest: "{{ home_dir}}/.zshrc"
     regexp: '^export PATH=(.*)$'
-    line: 'export PATH=\1:$HOME/go/bin'
+    line: 'export "PATH=\1:$HOME/go/bin"'
     backrefs: yes
   when: (not ansible_env.PATH | search('go/bin')) and (zshrc.stat.exists)
 
