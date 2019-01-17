@@ -13,6 +13,7 @@ atom:
     - busy-signal
     - file-icons
     - git-plus
+    - highlight-selected
     - intentions
     - language-ansible
     - linter
@@ -23,10 +24,11 @@ atom:
     - linter-ui-default
     - markdown-preview-plus
     - minimap
-    - tree-view-git-status
-    - highlight-selected
     - minimap-highlight-selected
-
+    - permanent-delete
+    - tidy-tabs
+    - tree-view-git-status
+    
 aws:
   region: eu-west-1
   output: text

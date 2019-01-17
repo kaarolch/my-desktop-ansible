@@ -1,0 +1,2 @@
+dive_ver: 0.3.0
+dive_url: 'https://github.com/wagoodman/dive/releases/download/v{{dive_ver}}/dive_{{dive_ver}}_linux_amd64.rpm'

@@ -5,6 +5,7 @@
   roles:
     - atom
     - awscli
+    - dive
     - docker
     - fonts
     - git

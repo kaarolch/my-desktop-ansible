@@ -1,0 +1,7 @@
+---
+# Main dive role.
+
+- import_tasks: install.yml
+  tags:
+    - container-tools
+    - dive
