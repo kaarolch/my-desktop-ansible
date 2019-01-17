@@ -41,4 +41,4 @@ git:
 
 helm_version: 2.11.0
 
-slack_version: 3.3.3-0.1.fc21
+slack_version: 3.3.7-0.1.fc21
