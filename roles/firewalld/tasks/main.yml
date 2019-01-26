@@ -1,0 +1,6 @@
+---
+# Main firewalld role.
+
+- import_tasks: config.yml
+  tags:
+    - firewalld

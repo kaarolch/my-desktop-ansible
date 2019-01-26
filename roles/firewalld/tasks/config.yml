@@ -1,0 +1,11 @@
+---
+
+- name: Configure firewalld rules
+  become: yes
+  firewalld:
+    immediate: yes
+    port: "{{ item.ports }}"
+    permanent: yes
+    state: "{{ item.state }}"
+    zone: "{{ item.zone }}"
+  loop: "{{ firewalld_ports }}"

@@ -1,0 +1,3 @@
+firewalld_ports:
+  - { ports: "1025-65535/udp", state: "disabled", zone: "FedoraWorkstation" }
+  - { ports: "1025-65535/tcp", state: "disabled", zone: "FedoraWorkstation" }
