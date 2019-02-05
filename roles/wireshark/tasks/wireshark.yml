@@ -5,13 +5,13 @@
   become: yes
   become_method: sudo
   dnf:
-    name: wireshark-gnome
+    name: wireshark
     state: latest
 
 - name: Add user to wireshark group
   become: yes
   become_method: sudo
-  command: usermod -a -G docker {{ user }}
+  command: usermod -a -G wireshark {{ user }}
 
 - name: Create wireshark config folder
   file:
