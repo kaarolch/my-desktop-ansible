@@ -1,7 +1,13 @@
 ---
+- name: Check if helm installed
+  stat:
+    path:  "{{ helm_path }}/helm"
+  register: helm_check
+
 - name: Check tiller version
   command: helm version -c
   register: helm_info
+  when: helm_check.stat.exists == True
 
 - block:
   - name: Create directory for helm
@@ -26,4 +32,4 @@
     file:
       path: "{{ helm_tmp_path }}"
       state: absent
-  when: " helm_version not in helm_info.stdout "
+  when: "not helm_check.stat.exists or helm_version not in helm_info.stdout"
