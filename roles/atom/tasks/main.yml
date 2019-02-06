@@ -1,4 +1,4 @@
----
+--
 # Main atom playbook, required for tags handling and include right playbook.
 - import_tasks: atom.yml
   tags:

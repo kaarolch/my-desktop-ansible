@@ -29,3 +29,11 @@
     - "{{ atom.packages }}"
   register: apm_install_result
   changed_when: "'Already installed.' not in apm_install_result.stdout"
+
+- name: Install ansible-lint
+  become: yes
+  become_method: sudo
+  package:
+    name: python3-ansible-lint
+    state: latest
+  when: "'linter-ansible-linting' in atom.packages"
