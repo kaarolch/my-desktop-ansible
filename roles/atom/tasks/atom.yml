@@ -37,3 +37,11 @@
     name: python3-ansible-lint
     state: latest
   when: "'linter-ansible-linting' in atom.packages"
+
+- name: Install ansible-lint
+  become: yes
+  become_method: sudo
+  package:
+    name: golint
+    state: latest
+  when: "'go-plus' in atom.packages"
