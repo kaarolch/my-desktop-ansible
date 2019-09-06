@@ -1,0 +1,12 @@
+---
+- name: Install docker packages
+  homebrew_cask:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - docker
+    - docker-toolbox
+- name: Install docker homebrew packages
+  homebrew:
+    name: docker-machine-driver-xhyve
+    state: latest

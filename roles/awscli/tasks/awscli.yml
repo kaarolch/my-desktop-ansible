@@ -1,11 +1,25 @@
 ---
 # AWScli installation playbook
-- name: Install AWScli package
+- name: Install AWScli package on MacOSX
+  block:
+    - name:
+      unarchive:
+        remote_src: yes
+        src: https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
+        dest: "{{ tmp_dir }}"
+    - name:
+      become: yes
+      become_method: sudo
+      shell: "{{ tmp_dir }}/awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws"
+  when: ansible_distribution == 'MacOSX'
+
+- name: Install AWScli package on Fedora
   become: yes
   become_method: sudo
   dnf:
     name: awscli
     state: latest
+  when: ansible_distribution == 'Fedora'
 
 - name: Check and setup config directory
   file:

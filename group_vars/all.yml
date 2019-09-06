@@ -2,9 +2,9 @@
 # Global varaible use in some roles
 
 tmp_dir: /tmp/ansible_tmp
-user: karol
-group: karol
-home_dir: /home/{{ user }}
+user: karolchrapek
+group: staff
+home_dir: /Users/{{ user }}
 
 atom:
   packages:

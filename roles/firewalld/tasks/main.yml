@@ -4,3 +4,4 @@
 - import_tasks: config.yml
   tags:
     - firewalld
+  when: ansible_distribution == 'Fedora'

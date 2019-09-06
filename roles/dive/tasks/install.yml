@@ -8,7 +8,7 @@
   changed_when: False
   register: dive_binary
 
-- when: not dive_binary.stat.exists
+- when: not dive_binary.stat.exists and ansible_distribution == 'Fedora'
   block:
     - name: Download dive
       get_url:
@@ -21,3 +21,9 @@
       dnf:
         name: "{{ tmp_dir }}/dive.rpm"
         state: present
+
+- name: install from brew cask
+  homebrew:
+    name: dive
+    state: present
+  when: ansible_distribution == 'MacOSX'

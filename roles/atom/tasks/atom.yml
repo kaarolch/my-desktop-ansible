@@ -1,17 +1,24 @@
 ---
 # Atom playbook
+- block:
+  - name: Download atom editor rpm
+    get_url:
+      url: https://atom.io/download/rpm
+      dest: "{{ tmp_dir }}/atom.rpm"
 
-- name: Download atom editor rpm
-  get_url:
-    url: https://atom.io/download/rpm
-    dest: "{{ tmp_dir }}/atom.rpm"
+  - name: Install atom editor
+    become: yes
+    become_method: sudo
+    dnf:
+      name: "{{ tmp_dir }}/atom.rpm"
+      state: present
+  when: ansible_distribution == 'Fedora'
 
-- name: Install atom editor
-  become: yes
-  become_method: sudo
-  dnf:
-    name: "{{ tmp_dir }}/atom.rpm"
+- name: install from brew cask
+  homebrew_cask:
+    name: atom
     state: present
+  when: ansible_distribution == 'MacOSX'
 
 - name: Update all installed plugins
   shell: >
@@ -31,17 +38,24 @@
   changed_when: "'Already installed.' not in apm_install_result.stdout"
 
 - name: Install ansible-lint
-  become: yes
-  become_method: sudo
-  package:
-    name: python3-ansible-lint
-    state: latest
+  block:
+    - name: Install on Fedora
+      package:
+        name: python3-ansible-lint
+        state: latest
+      when: ansible_distribution == 'Fedora'
+    - name: Install on Mac
+      homebrew:
+        name: ansible-lint
+        state: present
+      when: ansible_distribution == 'MacOSX'
   when: "'linter-ansible-linting' in atom.packages"
 
 - name: Install ansible-lint
-  become: yes
-  become_method: sudo
-  package:
-    name: golint
-    state: latest
+  block:
+    - name: Fedora
+      package:
+        name: golint
+        state: latest
+      when: ansible_distribution == 'Fedora'
   when: "'go-plus' in atom.packages"

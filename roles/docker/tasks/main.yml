@@ -1,5 +1,11 @@
 ---
 # Main docker playbook, required for tags handling and include right playbook.
-- import_tasks: docker.yml
+- import_tasks: docker-fedora.yml
   tags:
     - docker
+  when: ansible_distribution == 'Fedora'
+
+- import_tasks: docker-mac.yml
+  tags:
+    - docker
+  when: ansible_distribution == 'MacOSX'
