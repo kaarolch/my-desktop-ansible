@@ -2,3 +2,4 @@
 - import_tasks: install-tools.yml
   tags:
     - gnome-tools
+  when: ansible_distribution != 'MacOSX'

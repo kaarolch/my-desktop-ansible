@@ -1,0 +1,11 @@
+- name: Install Chrome
+  homebrew_cask:
+    name: google-chrome
+    state: present
+    install_options: force
+
+- name: Create chrome extensions directory
+  become: true
+  file:
+    path: /Library/Application Support/Google/Chrome/External Extensions
+    state: directory

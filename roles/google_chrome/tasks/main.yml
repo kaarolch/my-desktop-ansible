@@ -1,5 +1,11 @@
 ---
 # Main chrome playbook, required for tags handling and include right playbook.
-- import_tasks: chrome.yml
+- import_tasks: chrome-fedora.yml
   tags:
     - chrome
+  when: ansible_distribution == 'Fedora'
+
+- import_tasks: chrome-osx.yml
+  tags:
+    - chrome
+  when: ansible_distribution == 'MacOSX'

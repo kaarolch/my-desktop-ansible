@@ -1,12 +1,19 @@
 ---
 # Golang playbook
 
-- name: Install golnag - stable
+- name: Install golang - stable
   become: yes
   become_method: sudo
   dnf:
     name: golang
     state: present
+  when: ansible_distribution == 'Fedora'
+
+- name: Install golang - stable
+  homebrew:
+    name: golang
+    state: present
+  when: ansible_distribution == 'MacOSX'
 
 - name: Create golang directory structure for user
   file:
